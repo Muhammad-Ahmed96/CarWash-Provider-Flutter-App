@@ -60,8 +60,8 @@ class _SigninState extends State<Signin> {
   }
 
   Future<void> login(email, password) async {
-    var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company_auth/sign_in');
+    var url =
+        Uri.parse('https://carwash-back.herokuapp.com/company_auth/sign_in');
     var response =
         await http.post(url, body: {'email': email, 'password': password});
     if (json.decode(response.body)['success'] == null) {

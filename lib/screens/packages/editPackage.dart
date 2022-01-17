@@ -78,7 +78,7 @@ class _EditPackage extends State<EditPackage> {
   Future getPackage(int id) async {
     EasyLoading.show(status: 'loading...');
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/packages/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/packages/${id}');
     var response = await http.get(url);
     var res = jsonDecode(response.body);
     print(res);
@@ -100,7 +100,7 @@ class _EditPackage extends State<EditPackage> {
     // final prefs = await SharedPreferences.getInstance();
     // var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/packages/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/packages/${id}');
     var response = await http.put(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

@@ -78,7 +78,7 @@ class _EditWasher extends State<EditWasher> {
   Future getWasher(int id) async {
     EasyLoading.show(status: 'loading...');
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/washers/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/washers/${id}');
     var response = await http.get(url);
     var res = jsonDecode(response.body);
     print(res);
@@ -115,7 +115,7 @@ class _EditWasher extends State<EditWasher> {
       obj['password'] = this.passwordController.text;
     }
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/washers/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/washers/${id}');
     var response = await http.put(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -184,7 +184,7 @@ class _EditWasher extends State<EditWasher> {
 
   deleteWasher(context, id) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/services/${id}');
     var response = await http.delete(url);
     var jsonResult = jsonDecode(response.body);
     print(jsonResult['status']);

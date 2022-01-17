@@ -29,7 +29,7 @@ class MyServices extends StatelessWidget {
     final prefs = await SharedPreferences.getInstance();
     var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/comp_services/${companyId}');
+        'https://carwash-back.herokuapp.com/company/v1/comp_services/${companyId}');
     var response = await http.get(url);
     var jsonResult = jsonDecode(response.body);
     List<ServiceItem> servicesList = [];
@@ -55,7 +55,7 @@ class MyServices extends StatelessWidget {
 
   deleteService(context, id) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/services/${id}');
     var response = await http.delete(url);
     var jsonResult = jsonDecode(response.body);
     print(jsonResult['status']);

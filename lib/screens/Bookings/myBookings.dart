@@ -34,7 +34,7 @@ class _MyBookingsState extends State<MyBookings> {
     final prefs = await SharedPreferences.getInstance();
     var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/comp_bookings/${companyId}');
+        'https://carwash-back.herokuapp.com/company/v1/comp_bookings/${companyId}');
     var response = await http.get(url);
     var jsonResult = jsonDecode(response.body);
     print(jsonResult);
@@ -145,7 +145,7 @@ class _MyBookingsState extends State<MyBookings> {
 
   unAssignWasher(context, washerId, bookingId) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/bookings/${bookingId}');
+        'https://carwash-back.herokuapp.com/company/v1/bookings/${bookingId}');
     var response = await http.put(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

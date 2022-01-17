@@ -27,7 +27,7 @@ class AssignWasher extends StatelessWidget {
     final prefs = await SharedPreferences.getInstance();
     var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/availablewashers/${this.bookingId}');
+        'https://carwash-back.herokuapp.com/company/v1/availablewashers/${this.bookingId}');
     var response = await http.get(url);
     var jsonResult = jsonDecode(response.body);
     List<AssignWsherItem> usersList = [];
@@ -43,7 +43,7 @@ class AssignWasher extends StatelessWidget {
 
   assignWasher(context, washerId) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/bookings/${this.bookingId}');
+        'https://carwash-back.herokuapp.com/company/v1/bookings/${this.bookingId}');
     var response = await http.put(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

@@ -92,8 +92,8 @@ class _AddWasher extends State<AddWasher> {
         (this.passwordController.text == this.confirmPasswordController.text)) {
       obj['password'] = this.passwordController.text;
     }
-    var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/washers');
+    var url =
+        Uri.parse('https://carwash-back.herokuapp.com/company/v1/washers');
     var response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

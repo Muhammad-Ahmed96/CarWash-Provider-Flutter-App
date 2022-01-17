@@ -25,7 +25,7 @@ class Vehicles extends StatelessWidget {
   Future getVehicles() async {
     EasyLoading.show(status: 'loading...');
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/vehicle_types.json');
+        'https://carwash-back.herokuapp.com/company/v1/vehicle_types.json');
     var response = await http.get(url);
     var jsonResult = jsonDecode(response.body);
     List<VehicleItem> servicesList = [];
@@ -55,7 +55,7 @@ class Vehicles extends StatelessWidget {
 
   deleteVehicle(context, id) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/vehicle_types/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/vehicle_types/${id}');
     var response = await http.delete(url);
     var jsonResult = jsonDecode(response.body);
     print(jsonResult['status']);

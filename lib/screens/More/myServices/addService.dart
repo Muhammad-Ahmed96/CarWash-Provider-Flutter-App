@@ -78,8 +78,8 @@ class _AddService extends State<AddService> {
     var newduration = int.parse(duration);
     final prefs = await SharedPreferences.getInstance();
     var companyId = prefs.getInt("token");
-    var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services');
+    var url =
+        Uri.parse('https://carwash-back.herokuapp.com/company/v1/services');
     var response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

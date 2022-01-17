@@ -27,7 +27,7 @@ class Washers extends StatelessWidget {
     final prefs = await SharedPreferences.getInstance();
     var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/comp_washers/${companyId}');
+        'https://carwash-back.herokuapp.com/company/v1/comp_washers/${companyId}');
     var response = await http.get(url);
     var jsonResult = jsonDecode(response.body);
     List<WasherItem> usersList = [];
@@ -77,7 +77,7 @@ class Washers extends StatelessWidget {
 
   deleteWasher(context, id) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/washer/delete/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/washer/delete/${id}');
     var response = await http.delete(url);
     if (response.statusCode == 200) {
       Navigator.pushAndRemoveUntil(

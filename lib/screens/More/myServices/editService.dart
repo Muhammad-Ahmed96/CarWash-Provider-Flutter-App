@@ -78,7 +78,7 @@ class _EditService extends State<EditService> {
   Future getService(int id) async {
     EasyLoading.show(status: 'loading...');
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/services/${id}');
     var response = await http.get(url);
     var res = jsonDecode(response.body);
     print(res);
@@ -100,7 +100,7 @@ class _EditService extends State<EditService> {
     // final prefs = await SharedPreferences.getInstance();
     // var companyId = prefs.getInt("token");
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/services/${id}');
     var response = await http.put(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -183,7 +183,7 @@ class _EditService extends State<EditService> {
 
   deleteService(context, id) async {
     var url = Uri.parse(
-        'https://carwash-back.herokuapp.com/company/company/v1/services/${id}');
+        'https://carwash-back.herokuapp.com/company/v1/services/${id}');
     var response = await http.delete(url);
     var jsonResult = jsonDecode(response.body);
     print(jsonResult['status']);
